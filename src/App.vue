@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <AppHeader></AppHeader>
-    </div>
+    <AppHeader></AppHeader>
+    <div class="header_blank"></div>
     <router-view/>
   </div>
 </template>
@@ -15,22 +14,19 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: rgb(0, 10, 41);
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.header_blank{
+  margin-top: 75px;
 }
 </style>
