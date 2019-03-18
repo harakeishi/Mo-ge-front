@@ -1,6 +1,6 @@
 {
-  "name": "monster_ge_front",
-  "short_name": "monster_ge_front",
+  "name": "モンスタージェネレータ",
+  "short_name": "モンジェネ",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
