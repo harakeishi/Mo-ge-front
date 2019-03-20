@@ -24,8 +24,7 @@ export default {
         university: 'uni'
       },
       uploadFile: null,
-      error: null,
-      ppp: 111
+      error: null
     }
   },
   mounted () {
