@@ -4,11 +4,9 @@
     <p>ここは写真を素材としてモンスターを召喚できます。</p>
     <input @change="selectedFile" type="file" name="file"><br>
     <button @click="upload" type="submit">召喚！</button>
-    <input type="button" @click="oppa">
     <div class="">
       <p>＊注：ファイルはアップロードされません。</p>
       <p>ファイルサイズを参照してサイズのみを使用しています。</p>
-      {{ ppp }}
     </div>
   </div>
 </template>
@@ -51,10 +49,6 @@ export default {
       console.log(1)
       this.$store.commit('UPDATE_GENERATION_NUMBER', this.uploadFile.size)
       router.push('generation')
-    },
-    oppa () {
-      console.log("oppa")
-      this.ppp = this.$store.state.GenerationNumber
     }
   }
 }
