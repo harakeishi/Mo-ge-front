@@ -1,15 +1,21 @@
 <template>
   <div id="home">
-    <h1>home</h1>
-    <h1>time:{{ msg.time }}<br> name:{{ msg.name }}<br> uni:{{ msg.university }}</h1>
-    <input type="button" @click="test" value="ajax!"><br>
-    <router-link :to="{ name: 'about'}">about</router-link>
+    <h1>ようこそ</h1>
+    <p>ここは写真を素材としてモンスターを召喚できます。</p>
+    <input @change="selectedFile" type="file" name="file"><br>
+    <button @click="upload" type="submit">召喚！</button>
+    <input type="button" @click="oppa">
+    <div class="">
+      <p>＊注：ファイルはアップロードされません。</p>
+      <p>ファイルサイズを参照してサイズのみを使用しています。</p>
+      {{ ppp }}
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-
+import router from '../router'
 export default {
   name: 'home',
   data () {
@@ -18,15 +24,13 @@ export default {
         time: 'now',
         name: 'name',
         university: 'uni'
-      }
+      },
+      uploadFile: null,
+      error: null,
+      ppp: 111
     }
   },
-  components: {
-  },
   mounted () {
-    axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => console.log(response.data.bpi))
   },
   methods: {
     test () {
@@ -35,7 +39,22 @@ export default {
       params.append('uni', 'kanagawa')
       axios.post("http://localhost/api.php", params)
       .then(response => {this.msg = response.data })
-      .catch(error => { console.log(error) })
+      .catch(error => { this.error = error })
+    },
+    selectedFile (e) {
+      // 選択された File の情報を保存しておく
+      e.preventDefault();
+      let files = e.target.files;
+      this.uploadFile = files[0];
+    },
+    upload () {
+      console.log(1)
+      this.$store.commit('UPDATE_GENERATION_NUMBER', this.uploadFile.size)
+      router.push('generation')
+    },
+    oppa () {
+      console.log("oppa")
+      this.ppp = this.$store.state.GenerationNumber
     }
   }
 }
@@ -43,6 +62,11 @@ export default {
 
 <style scoped>
 #home{
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  background-color: rgb(163, 152, 142);
+  border-radius: 5px;
 }
 </style>

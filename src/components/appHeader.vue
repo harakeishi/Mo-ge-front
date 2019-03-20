@@ -25,7 +25,7 @@ export default {
   text-align: left;
 }
 #logo{
-  width: 30vw;
-  min-height: 75px;
+  max-width: 60%;
+  height: 75px;
 }
 </style>

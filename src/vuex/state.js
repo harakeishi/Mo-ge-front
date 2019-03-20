@@ -3,4 +3,8 @@
 */
 
 export default {
+  GenerationNumber: 0,
+  monsterData: {
+    id: null
+  }
 }
