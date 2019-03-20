@@ -34,19 +34,20 @@ export default {
       var params = new URLSearchParams()
       params.append('name', 'keishi')
       params.append('uni', 'kanagawa')
-      axios.post("http://localhost/api.php", params)
-      .then(response => {this.msg = response.data })
-      .catch(error => { this.error = error })
+      axios.post('http://localhost/api.php', params).then(response => { this.msg = response.data }).catch(error => { this.error = error })
     },
     selectedFile (e) {
       // 選択された File の情報を保存しておく
-      e.preventDefault();
-      let files = e.target.files;
-      this.uploadFile = files[0];
+      e.preventDefault()
+      let files = e.target.files
+      this.uploadFile = files[0]
     },
     upload () {
       console.log(1)
       this.$store.commit('UPDATE_GENERATION_NUMBER', this.uploadFile.size)
+      /*
+      ここにサーバ通信とレスポンスをストアに保存するコードを書く
+      */
       router.push('generation')
     }
   }
