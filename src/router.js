@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Generation from './views/Generation'
 import Result from './views/Result'
+import Login from './views/login'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/result',
       name: 'result',
       component: Result
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })
