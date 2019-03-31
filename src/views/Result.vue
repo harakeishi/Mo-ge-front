@@ -26,8 +26,7 @@ export default {
   mounted () {
     var params = new URLSearchParams()
     params.append('id', this.a)
-    axios.post('http://localhost/monster/generatemonster.php', params)
-    .then(response => {
+    axios.post('http://localhost/monster/generatemonster.php', params).then(response => {
       this.id = response.data.id
       this.name = response.data.name
       this.info = response.data.info

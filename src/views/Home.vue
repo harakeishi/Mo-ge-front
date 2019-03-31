@@ -36,9 +36,10 @@ export default {
       var params = new URLSearchParams()
       params.append('name', 'keishi')
       params.append('uni', 'kanagawa')
-      axios.post('http://localhost/api.php', params).then(response => { this.msg = response.data
-      console.log(response) }).catch(error => { this.error = error })
-
+      axios.post('http://localhost/api.php', params).then(response => {
+        this.msg = response.data
+        console.log(response)
+      }).catch(error => { this.error = error })
     },
     selectedFile (e) {
       // 選択された File の情報を保存しておく
